@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#092c39">
+  <title>Tropical Reels — Volto animato + Immagini universali</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="scene">
+    <!-- Lo sfondo usa forme CSS e SVG originali, senza immagini esterne. -->
+    <div class="landscape" aria-hidden="true">
+      <div class="sun"></div>
+      <div class="cloud cloud--one"></div>
+      <div class="cloud cloud--two"></div>
+      <div class="mountains"></div>
+      <div class="building building--left"></div>
+      <div class="building building--right"></div>
+      <div class="ground"></div>
+      <svg class="palm palm--right" viewBox="0 0 230 280">
+        <path class="palm-trunk" d="M160 295 Q170 166 112 70"/>
+        <path class="palm-leaf" d="M112 72 Q53 4 0 37 Q62 38 116 84Z"/>
+        <path class="palm-leaf" d="M112 72 Q104 2 176 1 Q148 30 116 83Z"/>
+        <path class="palm-leaf" d="M112 72 Q177 28 228 62 Q164 55 115 83Z"/>
+        <path class="palm-leaf" d="M112 72 Q39 64 33 139 Q70 91 115 84Z"/>
+        <path class="palm-leaf" d="M112 72 Q177 70 197 141 Q151 100 115 83Z"/>
+      </svg>
+      <svg class="palm palm--left" viewBox="0 0 230 280">
+        <path class="palm-trunk" d="M160 295 Q170 166 112 70"/>
+        <path class="palm-leaf" d="M112 72 Q53 4 0 37 Q62 38 116 84Z"/>
+        <path class="palm-leaf" d="M112 72 Q104 2 176 1 Q148 30 116 83Z"/>
+        <path class="palm-leaf" d="M112 72 Q177 28 228 62 Q164 55 115 83Z"/>
+        <path class="palm-leaf" d="M112 72 Q39 64 33 139 Q70 91 115 84Z"/>
+      </svg>
+    </div>
+
+    <section class="machine" aria-label="Slot demo Tropical Reels">
+      <header class="machine-header">
+        <div>
+          <p class="eyebrow">ISLAND ADVENTURE · PROTOTIPO</p>
+          <h1>TROPICAL <span>REELS</span></h1>
+        </div>
+        <div class="demo-tag">DEMO<br><small>SOLO CREDITI VIRTUALI</small></div>
+      </header>
+
+      <div class="machine-frame" id="machineFrame">
+        <div class="frame-topline">
+          <span>✦ 6 RULLI · 4 RIGHE</span>
+          <span id="bonusIndicator">3 🎁 = 5 FREE SPINS</span>
+        </div>
+        <div class="reel-grid" id="reelGrid" aria-label="Griglia della slot"></div>
+        <div class="frame-bottomline">
+          <span>★ WILD sostituisce altri simboli</span>
+          <span>🎁 BONUS in qualsiasi posizione</span>
+        </div>
+      </div>
+
+      <section class="dashboard" aria-label="Controlli">
+        <div class="stat">
+          <span class="stat-label">CREDITI</span>
+          <strong id="credits">30,00</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">VINCITA</span>
+          <strong id="lastWin">0,00</strong>
+        </div>
+        <div class="stat stat--bonus">
+          <span class="stat-label">GIRI BONUS</span>
+          <strong id="freeSpins">0</strong>
+        </div>
+        <div class="controls">
+          <button id="spinBtn" class="button button--spin" type="button">↻ GIRA</button>
+          <button id="testBonusBtn" class="button button--test" type="button">🎁 PROVA BONUS</button>
+          <button id="testPortraitBtn" class="button button--test" type="button">✨ PROVA VINCITA VOLTO</button>
+          <button id="previewPortraitBtn" class="button button--test" type="button">👀 ANIMA VOLTO</button>
+          <button id="resetBtn" class="button button--reset" type="button">RICOMINCIA</button>
+        </div>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite">Premi GIRA, PROVA VOLTO per una vincita col ritratto o PROVA BONUS per i giri gratis.</p>
+      <p class="footnote">Puntata: 0,10 crediti · I giri bonus sono gratuiti · Nessun denaro reale</p>
+    </section>
+
+    <div id="confetti" class="confetti" aria-hidden="true"></div>
+
+    <div id="portraitPreview" class="portrait-demo is-hidden" role="dialog" aria-modal="true" aria-labelledby="portraitPreviewTitle" aria-hidden="true">
+      <div class="portrait-demo__card">
+        <h2 id="portraitPreviewTitle">VOLTO ANIMATO</h2>
+        <div id="portraitPreviewTarget" class="portrait-demo__target"></div>
+        <p>Guarda gli occhi: sbatte le palpebre! Durante una vincita cambia anche l’espressione della bocca.</p>
+        <button id="closePortraitPreview" class="button button--spin" type="button">CHIUDI ANTEPRIMA</button>
+      </div>
+    </div>
+
+    <div id="bonusModal" class="modal is-hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+      <div class="modal-card">
+        <div class="modal-symbol" id="modalIcon">🎁</div>
+        <p class="modal-eyebrow" id="modalEyebrow">BONUS SBLOCCATO</p>
+        <h2 id="modalTitle">5 GIRI GRATIS!</h2>
+        <p id="modalDescription">Durante i giri bonus le vincite sulle linee valgono il doppio.</p>
+        <button id="modalButton" class="button button--spin" type="button">INIZIA BONUS</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
